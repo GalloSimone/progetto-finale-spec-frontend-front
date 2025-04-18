@@ -1,4 +1,4 @@
-🧱 Milestone 1 – Setup iniziale
+<!-- 🧱 Milestone 1 – Setup iniziale
 Obiettivo: Prepara ambiente backend e struttura dati
 1. Clona il repo backend: git clone https://github.com/boolean-it/progetto-finale-spec-frontend-back
 2. Entra nella cartella del progetto e installa le dipendenze: npm install
@@ -23,9 +23,9 @@ export type Videogame = {
     * GET /videogames?search=...
     * GET /videogames?category=...
     * GET /videogames/:id
-✅ Checkpoint: se vedi correttamente i dati, puoi passare alla prossima milestone.
+✅ Checkpoint: se vedi correttamente i dati, puoi passare alla prossima milestone. -->
 
-⚙️ Milestone 2 – Setup frontend e struttura base
+<!-- ⚙️ Milestone 2 – Setup frontend e struttura base
 Obiettivo: Creare progetto React e organizzare file
 1. Crea progetto con Vite (oppure CRA): npm create vite@latest → React + JavaScript
 2. Installa Bootstrap (opzionale ma consigliato)
@@ -52,35 +52,35 @@ export async function getVideogameById(id) {
   const res = await fetch(`${BASE_URL}/videogames/${id}`);
   return res.json();
 }
-✅ Checkpoint: se riesci a vedere i dati con getVideogames(), sei pronto per la UI.
+✅ Checkpoint: se riesci a vedere i dati con getVideogames(), sei pronto per la UI. -->
 
-📄 Milestone 3 – Lista giochi + ricerca e filtro
+<!-- 📄 Milestone 3 – Lista giochi + ricerca e filtro
 Obiettivo: Mostrare tutti i giochi, con barra ricerca e filtro categoria
 1. Crea HomePage.jsx
 2. Usa useEffect per chiamare getVideogames()
 3. Mostra titolo e categoria in lista
 4. Aggiungi:
-    * Input per cercare nei titoli
-    * Select per filtrare per category
+    * Input per cercare nei titoli 
+   * Select per filtrare per category
     * (Opzionale) Select per ordinamento A-Z e Z-A
-✅ Checkpoint: se riesci a cercare e filtrare, procedi!
+✅ Checkpoint: se riesci a cercare e filtrare, procedi! -->
 
-🔍 Milestone 4 – Pagina di dettaglio
+<!-- 🔍 Milestone 4 – Pagina di dettaglio
 Obiettivo: Visualizzare tutte le info di un singolo gioco
 1. Crea GameDetailPage.jsx
 2. Aggiungi route con react-router-dom tipo /videogame/:id
 3. Usa getVideogameById(id) e mostra tutte le proprietà
 4. Aggiungi un pulsante "Confronta" e uno "❤️ Preferito"
-✅ Checkpoint: se ogni gioco ha una sua pagina, sei pronto per i preferiti!
+✅ Checkpoint: se ogni gioco ha una sua pagina, sei pronto per i preferiti! -->
 
-❤️ Milestone 5 – Sistema preferiti
+<!-- ❤️ Milestone 5 – Sistema preferiti
 Obiettivo: Aggiungi e rimuovi preferiti, accessibili ovunque
 1. Crea un contesto React FavoritesContext.jsx
 2. Gestisci array di ID dei giochi preferiti
 3. Aggiungi pulsante "❤️" alla lista e ai dettagli
 4. Crea componente FavoritesBar visibile sempre con i preferiti
 5. Mostra i preferiti anche nella Home o in una pagina dedicata
-✅ Checkpoint: se puoi aggiungere/rimuovere giochi ai preferiti ovunque → ottimo!
+✅ Checkpoint: se puoi aggiungere/rimuovere giochi ai preferiti ovunque → ottimo! -->
 
 🔀 Milestone 6 – Comparatore
 Obiettivo: Confrontare 2 giochi fianco a fianco
