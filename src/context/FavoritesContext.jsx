@@ -3,13 +3,13 @@ import { createContext, useState, useContext, useEffect } from 'react';
 const FavoritesContext = createContext();
 
 export const FavoritesProvider = ({ children }) => {
-  // ✅ Carica inizialmente da localStorage
+ 
   const [favorites, setFavorites] = useState(() => {
     const saved = localStorage.getItem("favorites");
     return saved ? JSON.parse(saved) : [];
   });
 
-  // ✅ Salva su localStorage ogni volta che cambia
+  
   useEffect(() => {
     localStorage.setItem("favorites", JSON.stringify(favorites));
   }, [favorites]);

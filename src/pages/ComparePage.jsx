@@ -18,7 +18,7 @@ export default function ComparePage() {
     fetchGames();
   }, [compareIds]);
 
-  // Reset delle games se non ci sono ID da confrontare
+ 
   useEffect(() => {
     if (compareIds.length === 0) {
       setGames([]);

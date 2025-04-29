@@ -3,13 +3,13 @@ import { createContext, useContext, useEffect, useState } from "react";
 const CompareContext = createContext();
 
 export function CompareProvider({ children }) {
-  // ✅ Inizializza da localStorage (solo la prima volta)
+
   const [compareIds, setCompareIds] = useState(() => {
     const saved = localStorage.getItem("compareIds");
     return saved ? JSON.parse(saved) : [];
   });
 
-  // ✅ Ogni volta che cambia compareIds, salva in localStorage
+  
   useEffect(() => {
     localStorage.setItem("compareIds", JSON.stringify(compareIds));
   }, [compareIds]);
@@ -29,7 +29,7 @@ export function CompareProvider({ children }) {
 
   const clearCompare = () => {
     setCompareIds([]);
-    localStorage.removeItem("compareIds"); // ✅ pulisce anche localStorage
+    localStorage.removeItem("compareIds"); 
   };
 
   return (

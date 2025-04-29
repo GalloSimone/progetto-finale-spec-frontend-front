@@ -60,7 +60,10 @@ export default function DetailPage() {
               <p className="card-text">{videogame.videogame.description}</p>
               <button
                 className="btn w-100 text-white" style={{ backgroundColor: "rgba(204, 0, 0, 0.7)" }}
-                onClick={() => navigate(`/compare`)}
+                onClick={() => {
+                  addToCompare(videogame.videogame.id);
+                  setTimeout(() => navigate("/compare"), 100);
+                }}
               >
                 Confronta
               </button>

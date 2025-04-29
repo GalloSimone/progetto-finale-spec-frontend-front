@@ -49,8 +49,8 @@ export default function Homepage({}) {
             <option value="platform 3D">platform 3D</option>
             <option value="Survival Horror.">Survival Horror.</option>
             <option value="Battle Royale">Battle Royale</option>
-            <option value="JRPG ">JRPG</option>
-            <option value="Simulazione di corse ">Simulazione di corse</option>
+            <option value="JRPG">JRPG</option>
+            <option value="Simulazione di corse">Simulazione di corse</option>
           </select>
           <button
             className="btn btn-outline-secondary"
