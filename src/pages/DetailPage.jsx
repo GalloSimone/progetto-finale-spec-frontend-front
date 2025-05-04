@@ -67,12 +67,6 @@ export default function DetailPage() {
               >
                 Confronta
               </button>
-              <button
-                className="btn btn-light mt-2 w-100"
-                onClick={toggleFavorite}
-              >
-                {isFavorite(videogame.id) ? "💔 Rimuovi dai preferiti" : "❤️ Aggiungi ai preferiti"}
-              </button>
             </div>
           </div>
         </div>
