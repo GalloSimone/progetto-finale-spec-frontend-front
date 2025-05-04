@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { getVideogameById } from "../services/api";
-import { useFavorites } from "../context/FavoritesContext";
 import { useCompare } from "../context/CompareContext";
 
 export default function DetailPage() {
@@ -11,7 +10,6 @@ export default function DetailPage() {
   const [error, setError] = useState(null);
   const { id } = useParams();
   const navigate = useNavigate();
-  const { isFavorite, addFavorite, removeFavorite } = useFavorites();
   const { addToCompare } = useCompare();
 
   useEffect(() => {
@@ -38,9 +36,6 @@ export default function DetailPage() {
   if (error) return <div>{error}</div>;
   if (!videogame) return <div>Il videogioco non è disponibile</div>;
 
-  const toggleFavorite = () => {
-    isFavorite(videogame.id) ? removeFavorite(videogame.id) : addFavorite(videogame.id);
-  };
 
   return (
     <>
