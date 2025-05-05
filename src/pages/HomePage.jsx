@@ -83,7 +83,7 @@ export default function Homepage({}) {
         marginLeft:'130%',
         marginBottom:'50%'
    }}
-     >Giochi non trovati. cambia la ricerca🔍</h2>
+     >Giochi non trovati. prova a cambiare la ricerca🔍</h2>
      </div>
 ) : (
       filteredGames.map((videogame, index) => (

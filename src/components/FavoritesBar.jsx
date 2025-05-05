@@ -1,7 +1,5 @@
 import { useFavorites } from "../context/FavoritesContext";
-import { Link } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
-
+import { Link,useNavigate } from "react-router-dom";
 
 export default function FavoritesBar() {
   const { favorites } = useFavorites();
