@@ -39,13 +39,12 @@ export default function DetailPage() {
   const handleCompare = () => {
     const idToAdd = videogame.videogame.id;
   
-    // Controlla se il gioco è già presente
     if (compareIds.includes(idToAdd)) {
       navigate("/compare");
       return;
     }
   
-    // Controlla se aggiungendo questo gioco arrivi a 2
+   
     if (compareIds.length + 1 === 2) {
       addToCompare(idToAdd);
       navigate("/compare");
