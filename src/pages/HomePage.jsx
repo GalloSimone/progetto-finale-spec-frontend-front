@@ -24,7 +24,19 @@ export default function Homepage({}) {
   const toggleFavorite = (id) => {
     isFavorite(id) ? removeFavorite(id) : addFavorite(id);
   };
-
+  const filteredGames = videogames
+  .filter((videogame) =>
+    videogame.title.toLowerCase().includes(input.toLowerCase())
+  )
+  .filter(
+    (videogame) =>
+      selectedCategory === "" || videogame.category === selectedCategory
+  )
+  .sort((a, b) => {
+    const titleA = a.title.toLowerCase();
+    const titleB = b.title.toLowerCase();
+    return sortOrder === 'asc' ? titleA.localeCompare(titleB) : titleB.localeCompare(titleA);
+  });
   return (
     <>
       <div className="container p-4">
@@ -63,45 +75,55 @@ export default function Homepage({}) {
         <div style={{ backgroundColor: 'rgba(204, 0, 0, 0.7)', padding: '3rem', borderRadius: '10px' }}> 
           <h1 className="mb-4 text-center text-light"> Videogiochi:</h1>
           <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-5 g-3">
-            {videogames
-              .filter((videogame) =>
-                videogame.title.toLowerCase().includes(input.toLowerCase())
-              )
-              .filter(
-                (videogame) =>
-                  selectedCategory === "" || videogame.category === selectedCategory
-              )
-              .sort((a, b) => {
-                const titleA = a.title.toLowerCase();
-                const titleB = b.title.toLowerCase();
-                if (sortOrder === 'asc') return titleA.localeCompare(titleB);
-                else return titleB.localeCompare(titleA);
-              })
-              .map((videogame, index) => (
-                <div className="col" key={index}>
-                  <div className="card h-100">
-                    <div className="card-body d-flex flex-column justify-content-between">
-                      <div>
-                        <h5 className="card-title">{videogame.title}</h5>
-                        <h6 className="card-subtitle mb-2 text-body-secondary">
-                          {videogame.category}
-                        </h6>
-                      </div>
-                      <div className="mt-3">
-                        <button
-                          className="btn btn-secondary mb-2 w-100"
-                          style={{ borderRadius: '20px' }}
-                          onClick={() => navigate(`/${videogame.id}`)}
-                        >
-                          Vai al dettaglio
-                        </button>
-                        <button
-                          className="btn btn-light w-100"
-                          style={{ borderRadius: '20px' }}
-                          onClick={() => toggleFavorite(videogame.id)}
-                        >
-                          {isFavorite(videogame.id) ? "💔 Rimuovi dai preferiti" : "❤️ Aggiungi ai preferiti"}
-                        </button>
+          {filteredGames.length === 0 ? (
+          <div className="col-12">
+         <h2 className=" text-white my-4 text-start"
+        style={{
+        whiteSpace: 'nowrap', 
+        marginLeft:'130%',
+        marginBottom:'50%'
+   }}
+     >Giochi non trovati. cambia la ricerca🔍</h2>
+     </div>
+) : (
+      filteredGames.map((videogame, index) => (
+<div className="col" key={index}>
+<div className="card h-100">
+<div className="card-body d-flex flex-column justify-content-between">
+ <div>
+ <h5 className="card-title">{videogame.title}</h5>
+ <h6 className="card-subtitle mb-2 text-body-secondary">
+  {videogame.category}
+ </h6>
+</div>
+ <div className="mt-3">
+<button
+ className="btn btn-secondary mb-2 w-100"
+ style={{ borderRadius: '20px' }}
+ onClick={() => navigate(`/${videogame.id}`)}
+ >
+ Vai al dettaglio
+</button>
+ <button
+  className="btn btn-light w-100"
+  style={{
+    borderRadius: '20px',
+    height: '45px',
+    overflow: 'hidden',
+    whiteSpace: 'nowrap',
+    textOverflow: 'ellipsis',
+    transition: 'all 0.2s ease',
+    fontSize: '0.9rem',
+  }}
+  onClick={(e) => {
+    e.preventDefault(); 
+    toggleFavorite(videogame.id);
+  }}
+>
+  {isFavorite(videogame.id)
+    ? "💔 Rimuovi dai preferiti"
+    : "❤️ Aggiungi ai preferiti"}
+</button>
                         <button className="btn w-100" style={{ backgroundColor: "rgba(204, 0, 0, 0.7)" }} onClick={() => addToCompare(videogame.id)}>
                           ➕ Confronta
                         </button>
@@ -109,7 +131,8 @@ export default function Homepage({}) {
                     </div>
                   </div>
                 </div>
-              ))}
+              ))
+            )}
           </div>
         </div>
       </div>
